@@ -1,0 +1,31 @@
+{
+  "name": "mem-crud-auth",
+  "version": "1.0.0",
+  "description": "Proyecto ejemplo para auth con react y nodejs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiarias/mem-crud-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aiarias/mem-crud-auth/issues"
+  },
+  "homepage": "https://github.com/aiarias/mem-crud-auth#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.6.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
