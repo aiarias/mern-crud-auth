@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { createContext, useState, useContext } from "react";
-import { registerRequest, loginRequest, verifyTokenRequest } from "../api/auth.js";
+import {
+  registerRequest,
+  loginRequest,
+  verifyTokenRequest,
+} from "../api/auth.js";
 import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
@@ -17,8 +21,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
-  const [loading, setLoading] = useState(true)
-
+  const [loading, setLoading] = useState(true);
 
   const singup = async (user) => {
     try {
@@ -45,6 +48,12 @@ export const AuthProvider = ({ children }) => {
       }
       setErrors([error.response.data.message]);
     }
+  };
+
+  const logout = () => {
+    Cookies.remove("token");
+    setIsAuthenticated(false);
+    setUser(null);
   };
 
   useEffect(() => {
@@ -85,6 +94,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         singup,
         signin,
+        logout,
         loading,
         user,
         isAuthenticated,
